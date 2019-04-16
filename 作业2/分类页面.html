@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.content{
+        position: relative;
+        width: 1262px;
+        height:1500px;
+       margin-left: auto;
+       margin-right: auto;
+       background-color:  rgb(244, 244, 244);
+    }
+.topnav{
+    position: absolute;
+    width: 1262px;
+    height: 54px;
+    background-color: white;
+    box-shadow: 3px 3px 3px #888888;
+    z-index: 1;
+}
+.icon{
+    position: absolute;
+    float: left;
+    margin-left: 182px;
+margin-top: 11px;
+}
+.search{
+ 
+    float:right;
+        width: 260px;
+        height: 28px;
+        font-size: 17px;
+        text-indent: 16px;
+        margin-right: 120px;
+        margin-top: 11px;
+        border: 1px solid lightgray;
+        background-image: url(images/详情页/search-2.png);
+        background-position:230px;
+        background-repeat: no-repeat;
+        border-radius: 25px;
+       outline: none;
+}
+#banner{
+position: relative;
+top:54px;
+    width: 1262px;
+    height: 192px;
+   background-color: rgb(244, 244, 244);
+   overflow: hidden;
+}
+.type{
+    position: absolute;
+    top:270px;
+    left:185px; 
+    width: 914px;
+    height: 50px;
+    border:1px solid  rgb(244, 244, 244);
+    border-bottom-color: lightgray; 
+}
+.list-book{
+    position: absolute;
+    top: 339px;
+   left: 185px;
+    width: 913px;
+    height: 805px;
+    background-color: rgb(244, 244, 244);
+    display: flex;
+     flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.book{
+    width: 201px;
+    height: 379px;
+    background-color:  rgb(244, 244, 244);
+}
+.star{
+    width: 102px;
+    height: 14px;
+    margin-left:50px; 
+    display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+.message{
+  width: 107px;
+  height: 60px;
+margin-left: 46px;
+margin-top: 15px;
+border-width: 0 0 2px 0;
+border-style: solid;
+border-color:darkgray;
+display: flex;
+flex-direction: column;
+align-items: center;
+align-content: space-around;
+}
+ul{
+    list-style-type: none;
+}
+li{
+    float: left;
+    font-size: 14px;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+.h1{
+    position: absolute;
+    width: 250px;
+    height: 30px;
+    font-size: 26px;
+    margin-top:23px;
+ margin-left: 538px;
+}
+.h2{
+    position: absolute;
+    width: 800px;
+    height: 100px;
+    border: 3px solid rgb(77, 73, 71);
+    background-color: rgb(240, 239, 239);
+}
+.header1{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.header2{
+    margin-top: 22px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+}
+        #list {
+            position: absolute;
+            z-index: 1;
+            width: 6310px;
+            height: 192px;
+        }
+        
+        #banner1 {
+             position:relative;
+            float: left;
+            width: 1262px;
+            height: 192px;
+            background-image:url(images/详情页/banner1.png);
+            background-repeat: no-repeat; 
+        }
+        #banner2 { 
+            position:relative;
+            float: left;
+            width: 1262px;
+            height: 192px;
+            background-image:url(images/详情页/banner2.png);
+            background-repeat: no-repeat;  
+        }
+        #banner3 {
+            position:relative;
+            float: left;
+            width: 1262px;
+            height: 192px;
+            background-image:url(images/详情页/banner3.png);
+            background-repeat: no-repeat; 
+            display: flex;
+    justify-content: center;
+    align-items: center; 
+        }
+        .fbanner{
+            margin:35px 605px 0 605px;
+        }
+        .sbanner{
+            margin:50px 545px 0 545px;
+        }
+        .tbanner{
+            margin:40px 605px 0 605px;
+        }
+        #buttons {
+            position: absolute;
+            left: 576px;
+            bottom: 20px;
+            z-index: 2;
+            height: 10px;
+            width: 200px;
+        }
+        
+        #buttons span {
+            float: left;
+            margin-right: 40px;
+            width: 10px;
+            height: 10px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            background:rgb(77, 73, 71);
+            cursor: pointer;
+        }
+        
+        #buttons .on {
+            background:rgb(217, 210, 207);
+        }
+        
+        .arrow {
+            position: absolute;
+            top: 80px;
+            z-index: 2;
+            display: none;
+            width: 40px;
+            height: 40px;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 35px;
+            color: #fff;
+            background-color: RGBA(0, 0, 0, .3);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .arrow:hover {
+            background-color: RGBA(0, 0, 0, .7);
+        }
+        
+        #banner:hover .arrow {
+            display: block;
+        }
+        
+        #prev {
+            left: 20px;
+        }
+        
+        #next {
+            right: 20px;
+        }
+        .pagination{
+            position: absolute;
+            top:1218px;
+            left:510px;
+            list-style: none;
+        }
+        .num{
+            display:inline;
+            margin-right: 2px;
+        }
+        .pagination a {
+  float: left;
+  display: block;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 5px 11px;
+  color:black;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+.pagination a.active {
+  cursor: default;
+}
+.pagination a:active {
+  outline: none;
+}
+ a:hover {
+  background-color: rgb(68, 68, 68);
+  color: white;
+}
+ a.active,a:active {
+  background-color: rgb(68, 68, 68);
+  color: white;
+}
+</style>
+<script type="text/javascript">
+        /* 知识点：        */
+        /*       this用法 */
+        /*       DOM事件 */
+        /*       定时器 */
+
+        window.onload = function() {
+            var banner = document.getElementById('banner');
+            var list = document.getElementById('list');
+            var buttons = document.getElementById('buttons').getElementsByTagName('span');
+            var prev = document.getElementById('prev');
+            var next = document.getElementById('next');
+            var index = 1;
+            var timer;
+
+            function animate(offset) {
+                //获取的是style.left，是相对左边获取距离，所以第一张图后style.left都为负值，
+                //且style.left获取的是字符串，需要用parseInt()取整转化为数字。
+                var newLeft = parseInt(list.style.left) + offset;
+                list.style.left = newLeft + 'px';
+                //无限滚动判断
+                if (newLeft > -1262) {
+                    list.style.left = -3786 + 'px';
+                }
+                if (newLeft < -3786) {
+                    list.style.left = -1262 + 'px';
+                }
+            }
+
+            function play() {
+                //重复执行的定时器
+                timer = setInterval(function() {
+                    next.onclick();
+                }, 2500)
+            }
+
+            function stop() {
+                clearInterval(timer);
+            }
+
+            function buttonsShow() {
+                //将之前的小圆点的样式清除
+                for (var i = 0; i < buttons.length; i++) {
+                    if (buttons[i].className == "on") {
+                        buttons[i].className = "";
+                    }
+                }
+                //数组从0开始，故index需要-1
+                buttons[index - 1].className = "on";
+            }
+
+            prev.onclick = function() {
+                index -= 1;
+                if (index < 1) {
+                    index = 3
+                }
+                buttonsShow();
+                animate(1262);
+            };
+
+            next.onclick = function() {
+                //由于上边定时器的作用，index会一直递增下去，我们只有5个小圆点，所以需要做出判断
+                index += 1;
+                if (index > 3) {
+                    index = 1
+                }
+                animate(-1262);
+                buttonsShow();
+            };
+
+            for (var i = 0; i < buttons.length; i++) {
+                (function(i) {
+                    buttons[i].onclick = function() {
+
+                        /*   这里获得鼠标移动到小圆点的位置，用this把index绑定到对象buttons[i]上，去谷歌this的用法  */
+                        /*   由于这里的index是自定义属性，需要用到getAttribute()这个DOM2级方法，去获取自定义index的属性*/
+                        var clickIndex = parseInt(this.getAttribute('index'));
+                        var offset = 1262 * (index - clickIndex); //这个index是当前图片停留时的index
+                        animate(offset);
+                        index = clickIndex; //存放鼠标点击后的位置，用于小圆点的正常显示
+                        buttonsShow();
+                    }
+                })(i)
+            }
+
+            banner.onmouseover = stop;
+            banner.onmouseout = play;
+            play();
+
+        }
+    </script>
+
+</head>
+<body>
+ <div class="content">
+<div class="topnav">
+<div class="icon">
+<img src="images/详情页/推书-logo.png">
+</div>
+<div>
+<input type="text" class="search" placeholder="请搜索" onfocus="if(placeholder=='请搜索')placeholder=''" onblur="if(!placeholder)placeholder='请搜索'" name="keyword">
+</div>
+</div>
+<div id="banner">
+    <div id="list" style="left: -1262px;">
+        <div id="banner1"><img src="images/详情页/banner1书架.png" class="fbanner"><div class="h1">推书，推你所想</div></div>
+        <div id="banner1"><img src="images/详情页/banner1书架.png" class="fbanner"><div class="h1">推书，推你所想</div></div>
+            <div id="banner2"><img src="images/详情页/推书.png" class="sbanner"></div>
+            <div id="banner3">
+                <div class="h2">
+                <div class="header1">今日推荐</div>
+                <div class="header2">震惊！维生数前端居然是这样考核</div>
+            </div>
+        </div>
+               
+    </div>
+    <div id="buttons">
+        <span index="1" class="on"></span>
+        <span index="2"></span>
+        <span index="3"></span>
+    </div>
+    <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+        <a href="javascript:;" id="next" class="arrow">&gt;</a>
+</div>
+<div class="type">
+    <ul>
+    <li>分类 :</li>
+    <li>类一</li>
+    <li>类二</li>
+    <li>类三</li>
+    <li>类四</li>
+   </ul>
+    </div>
+ <div class="list-book">
+<div class="book">
+    <img src="images/详情页/book.png">
+    <div class="star">
+          <img src="images/详情页/黑.png">
+          <img src="images/详情页/黑.png">
+          <img src="images/详情页/黑.png">
+          <img src="images/详情页/黑.png">
+          <img src="images/详情页/白.png">
+    </div>
+    <div class="message">
+        <a>书名</a>
+        <a>作者</a>
+    </div>
+</div>
+<div class="book">
+        <img src="images/详情页/book.png">
+        <div class="star">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/白.png">
+          </div>
+          <div class="message">
+                <a>书名</a>
+                <a>作者</a>
+            </div>
+</div>
+<div class="book">
+     <img src="images/详情页/book.png">
+     <div class="star">
+            <img src="images/详情页/黑.png">
+            <img src="images/详情页/黑.png">
+            <img src="images/详情页/黑.png">
+            <img src="images/详情页/黑.png">
+            <img src="images/详情页/白.png">
+      </div>
+      <div class="message">
+            <a>书名</a>
+            <a>作者</a>
+        </div>
+    </div>
+<div class="book">
+     <img src="images/详情页/book.png"> 
+     <div class="star">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/白.png">
+  </div>
+     <div class="message">
+        <a>书名</a>
+        <a>作者</a>
+    </div>
+    </div>
+   
+<div class="book">
+     <img src="images/详情页/book.png">
+     <div class="star">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/白.png">
+  </div>
+     <div class="message">
+        <a>书名</a>
+        <a>作者</a>
+    </div>
+    </div>
+    
+<div class="book">
+     <img src="images/详情页/book.png">
+     <div class="star">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/白.png">
+  </div>
+     <div class="message">
+        <a>书名</a>
+        <a>作者</a>
+    </div>
+    </div>
+    
+<div class="book"> 
+    <img src="images/详情页/book.png">
+    <div class="star">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/白.png">
+  </div>
+  <div class="message">
+    <a>书名</a>
+    <a>作者</a>
+</div>
+</div>
+<div class="book">
+     <img src="images/详情页/book.png">
+     <div class="star">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/黑.png">
+        <img src="images/详情页/白.png">
+  </div>
+     <div class="message">
+        <a>书名</a>
+        <a>作者</a>
+    </div>
+    </div>
+    
+ </div>
+ <ul class="pagination">
+    <li class="num"><a href="#">&lt;</a></li>
+    <li class="num"><a href="#">1</a></li>
+    <li class="num"><a href="#">2</a></li>
+    <li class="num"><a href="#">3</a></li>
+    <li class="num"><a href="#">...</a></li>
+    <li class="num"><a href="#">x</a></li>
+    <li class="num"><a href="#">&gt;</a></li>
+ </ul>
+ </div>  
+</body>
+</html>
