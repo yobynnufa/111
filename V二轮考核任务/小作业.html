@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+ *{
+     margin: 0px;
+     padding: 0px;
+ }
+.box{
+    position: relative;
+    width: 1270px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+img{
+    position: absolute;
+    top: 25%;
+    left:39.5%;
+}
+.content{
+    position: absolute;
+    top: 8%;
+    left:35%;
+    width: 405px;
+    height: 400px;
+}
+.right{
+   position: relative;
+   float: left;
+   width:200px;
+   height: 400px;
+   overflow: hidden; 
+}
+.left{
+  position: relative;
+  float: left;
+  width:200px;
+  height: 400px;
+  overflow: hidden; 
+}
+
+.circle{
+    width: 200px;
+    height: 200px;
+    border: 100px solid transparent;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    transform: rotate(-135deg);
+}
+.circle1{
+    width: 190px;
+    height: 190px;
+    border: 105px solid transparent;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+}
+.rightcircle{
+   border-top: 105px solid yellow;
+   border-right: 105px solid yellow;
+   animation: circle_right 10s linear;
+   animation-delay: 5s;
+   animation-fill-mode:forwards;
+}
+.leftcircle{
+   border-bottom: 105px solid yellow;
+   border-left: 105px solid yellow;
+   animation: circle_left 10s linear;
+   animation-fill-mode:forwards;
+}
+#loading
+{
+	width: 300px;
+	height: 20px;
+	border: 1px solid lightslategray;
+    border-radius: 15px;
+    position: absolute;
+    top: 90%;
+    left: 38%;
+	
+}
+#loading_1
+{
+	height: 20px;
+    position: absolute;
+	background-color: yellow;
+    animation:mymove 10s linear;
+    animation-fill-mode:forwards; 
+    animation-iteration-count:1;
+}
+#loadtext
+{
+	position: absolute;
+	right: 0;
+}
+
+/*覆盖层*/
+#cover
+{
+	background-color: white;
+	display: none;
+	width: 500px;
+	height: 100px;
+	z-index: 100;
+    position: absolute;
+    right: -30%;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+}
+@keyframes mymove
+{
+   0%{
+       width: 0;
+       border-radius: 15px;
+   }
+   100%{
+       border-radius: 15px;
+       width: 100%;
+   }
+}
+@keyframes circle_right{
+    0%{
+  transform: rotate(-135deg);
+}
+    50%,100%{
+  transform: rotate(45deg);
+}
+}
+@keyframes circle_left{
+   0%{
+    transform: rotate(-135deg);
+}
+   50%,100%{
+   transform: rotate(45deg);
+}
+}
+</style>
+
+</head>
+<body>
+   <div class="box">
+       <div class="content">
+       <div class="left">
+<div class="circle1 leftcircle"></div>
+       </div>
+       <div class="right">
+<div class="circle rightcircle"></div>
+       </div>
+   </div>
+<div><img src="作业1/小作业/图层 0.png" alt=""></div>
+
+<div id="loading">
+        <div id="loading_1"></div>
+		<div id="loadtext">0%</div>
+		<div id="cover">今天也要做个佛系学生哦</div>
+</div>
+<script>
+
+        //进度条和计时器
+        var i=0;
+        function test(){
+            i++;
+            document.getElementById("loadtext").innerText = i + "%";
+            if(i<100) setTimeout("test()",100);
+        }
+        setTimeout("test()",100);
+        
+        //进度条判断动画是否停止并将覆盖层跳出
+        var e = document.getElementById("loading_1");
+            e.addEventListener("animationend", function() {
+                document.getElementById("cover").style.display = "block";
+            });
+        </script>        
+</div>
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery-3.4.0.min.js"></script>
+    <script src="mock.js"></script>
+    <script src="book-mock.js"></script>
+    <script src="js/sousuo.js"></script>
+    <title>搜索页</title>
+<script>
+window.onload=function(){
+    readyToShowBooksOnSearchPage()
+    details()
+    }
+</script>    
+<style>
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.content{
+    position: relative;
+    width: 1262px;
+    height:1500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:  rgb(244, 244, 244);
+    }
+.topnav{
+    position: relative;
+    width: 1262px;
+    height: 54px;
+    background-color: white;
+    box-shadow: 3px 3px 3px #888888;
+}
+.icon{
+    position: absolute;
+    margin-left: 182px;
+margin-top: 11px;
+}
+input{
+    position: absolute;
+    width: 260px;
+    height: 28px;
+    margin-top: 11px;
+    margin-left:511px; 
+    font-size: 17px;
+    text-indent: 16px;
+    border: 1px solid lightgray;
+    border-radius: 25px;
+    outline: none;   
+}
+.search{
+    position: absolute;
+    top: 17px;
+    left: 745px;
+    cursor: pointer;
+}
+.dropdown{
+    position: absolute;
+    width: 85px;
+    height: 30px;
+    margin-top: 11px;
+    margin-left: 1040px;
+    background-color: rgb(220, 215, 157);
+    transition: height 1s;
+    font-size: 15px;
+    border: 1px solid rgb(149, 147, 125);
+    overflow: hidden;
+    text-align: center;
+    line-height: 30px;    
+}
+li{
+    list-style: none;
+    cursor: pointer;
+}
+li:hover{
+    color: aliceblue;
+}
+.dropdown:hover
+{
+    height:150px;
+}
+.bg{
+    width: 1262px;
+    height: 192px;
+    background-image: url(images/详情页/banner1.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search_border{
+    width: 312px;
+    height: 80px;
+    border-bottom: 2px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search_content{
+    width: 160px;
+    height: 40px;
+    background-color: rgb(220, 215, 157);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list-book{
+    position: absolute;
+    top: 339px;
+    left: 185px;
+    width: 913px;
+    height: 805px;
+    background-color: rgb(244, 244, 244);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.book{
+    width: 201px;
+    height: 379px;
+    background-color:  rgb(244, 244, 244);
+}
+.star{
+    width: 102px;
+    height: 14px;
+    margin-left:50px; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.message{
+    width: 107px;
+    height: 60px;
+    margin-left: 46px;
+    margin-top: 15px;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color:darkgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+}
+.pagination{
+    position: absolute;
+    top:1218px;
+    left:510px;
+    list-style: none;
+}
+.num{
+    display:inline;
+    margin-right: 2px;
+}
+.pagination a {
+    float: left;
+    display: block;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 5px 11px;
+    color:black;
+    border: 1px solid transparent;
+    border-radius: 50%;
+}
+.pagination a.active {
+    cursor: default;
+}
+.pagination a:active {
+    outline: none;
+}
+a:hover {
+    background-color: rgb(68, 68, 68);
+    color: white;
+}
+a.active,a:active {
+    background-color: rgb(68, 68, 68);
+    color: white;
+}
+.book_bg{
+    position: absolute;
+    top: 242px;
+    width: 1262px;
+    height: 1074px;
+    background-color: rgb(218, 215, 215);
+    opacity: 0.97;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    display: none;
+}
+.book_bg2{
+    position: absolute;
+    width: 890px;
+    height: 890px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.close_bg{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.detail{
+    width: 768px;
+    height: 708px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.part_1{
+    width: 645px;
+    height: 368px;
+    margin-top: 55px;
+}
+.information{
+    width: 250px;
+    height: 323px;
+    margin:44px 60px 0 60px;
+    float: right;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+.part_2{
+    width: 645px;
+    height: 205px;
+    margin-bottom: 55px;
+    word-break: normal;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+.flex{
+    width: 270px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.flex img{
+    margin-right: 15px;
+}
+.horn_top{
+    position: absolute;
+    top: 85px;
+    left: 62px;
+    width: 95px;
+    height: 95px;
+    border: 1px solid rgb(212, 169, 169);
+    border-right: none;
+    border-bottom: none;
+}
+.horn_bottom{
+    position: absolute;
+    bottom: 85px;
+    right: 62px;
+    width: 95px;
+    height: 95px;
+    border: 1px solid rgb(212, 169, 169);
+    border-left: none;
+    border-top: none;
+}
+.close1{
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    }
+    .close{
+    display: block;
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+    position: relative;
+}
+.close:hover{
+    background-color: tomato;
+    }
+.close::before,.close::after{
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 0;
+    background: rgb(90, 88, 86);
+    width: 100%;
+    height: 6px;
+    border-radius: 10px;
+}  
+.close::before{
+    transform: rotate(45deg);
+}
+.close::after{
+    transform: rotate(-45deg);
+}
+</style>
+
+</head>
+<body onkeydown="do_search_page()">
+ <div class="content">
+     <div class="topnav">
+         <div class="icon"><img src="images/详情页/推书-logo.png" alt=""></div>
+     <div>
+            <input type="text"  placeholder="请搜索" onfocus="if(placeholder=='请搜索')placeholder=''" onblur="if(!placeholder)placeholder='请搜索'" id="keyword">
+          <img src="images/详情页/search-2.png" alt="" class="search" onclick="search_page()">
+        </div> 
+          <div class="dropdown">
+              <li> 分类</li>
+              <div onclick="type()"><li id="Z">哲学类</li></div> 
+              <div onclick="type()"><li id="X">悬疑类</li></div>
+              <div onclick="type()"><li id="A">爱情类</li></div>
+              <div onclick="type()"><li id="K">科幻类</li></div>
+          </div>
+     </div>
+     <div class="bg">
+<div class="search_border">
+    <div class="search_content" id="search_content">
+     
+    </div>
+</div>
+     </div>
+     <div class="book_bg" id="book_bg">
+            <div class="book_bg2">
+                <img src="images/详情页/矩形 2.png" alt="" class="close_bg">
+                <div class="close1" onclick="closeborder()">
+                        <span class="close"></span>
+                        </div>
+                <div class="horn_top"></div>
+                <div class="horn_bottom"></div>
+                <div class="detail">
+            <div class="part_1">
+                <img src="images/详情页/bookcover.png" alt="">
+                <div class="information">
+                  <h1 id="s"></h1>  
+                      <div class="flex">
+                        <img src="images/详情页/作者 .png" alt="">
+                        <a>| 作者</a>
+                    </div>
+                    <div class="flex">
+                            <img src="images/详情页/出.png" alt="">
+                            <a>| 出版社</a>
+                        </div>
+                        <div class="flex">
+                                <img src="images/详情页/时间.png" alt="">
+                                <a>| 出版时间</a>
+                            </div>
+                            <div class="flex">
+                                    <img src="images/详情页/图书馆.png" alt="">
+                                    <a>| 图书馆藏书：</a><a>x本</a>
+                                    <br><a>x楼x架xx</a>
+                                </div>
+                                <div class="flex">
+                                    <img src="images/详情页/书 (1).png" alt="">
+                                       <a> | </a>
+                                       <img src="images/详情页/豆瓣 .png" alt="">
+                                       <img src="images/详情页/知乎.png" alt="">
+                                    </div>
+                                    <div class="flex">
+                                            <img src="images/详情页/购买.png" alt="">
+                                            <a> | </a>
+                                            <img src="images/详情页/京东.png" alt="">
+                                            <img src="images/详情页/当当.png" alt="">
+                                            <img src="images/详情页/亚马逊.png" alt="">
+                                        </div>
+                </div>
+            </div>
+            <div class="part_2">
+                <div >
+                  <h2>作者简介</h2>  
+                  <div  id="f"><a class="a2"></a></div> 
+                </div>
+                <div>
+                    <h2>书籍简介</h2>
+                    <a class="a2">呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵</a>
+                </div>
+            </div> 
+            </div>
+            </div>
+            
+                </div>
+     <div class="list-book">
+           
+        <div class="book">
+            <img src="images/详情页/book.png" onclick="details()">
+            <div class="star">
+                  <img src="images/详情页/黑.png">
+                  <img src="images/详情页/黑.png">
+                  <img src="images/详情页/黑.png">
+                  <img src="images/详情页/黑.png">
+                  <img src="images/详情页/白.png">
+            </div>
+            <div class="message">
+                <a>书名</a>
+                <a>作者</a>
+            </div>
+        </div>
+        <div class="book">
+                <img src="images/详情页/book.png" onclick="details()">
+                <div class="star">
+                        <img src="images/详情页/黑.png">
+                        <img src="images/详情页/黑.png">
+                        <img src="images/详情页/黑.png">
+                        <img src="images/详情页/黑.png">
+                        <img src="images/详情页/白.png">
+                  </div>
+                  <div class="message">
+                        <a>书名</a>
+                        <a>作者</a>
+                    </div>
+        </div>
+        <div class="book">
+             <img src="images/详情页/book.png" onclick="details()">
+             <div class="star">
+                    <img src="images/详情页/黑.png">
+                    <img src="images/详情页/黑.png">
+                    <img src="images/详情页/黑.png">
+                    <img src="images/详情页/黑.png">
+                    <img src="images/详情页/白.png">
+              </div>
+              <div class="message">
+                    <a>书名</a>
+                    <a>作者</a>
+                </div>
+            </div>
+        <div class="book">
+             <img src="images/详情页/book.png" onclick="details()"> 
+             <div class="star">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/白.png">
+          </div>
+             <div class="message">
+                <a>书名</a>
+                <a>作者</a>
+            </div>
+            </div>
+           
+        <div class="book">
+             <img src="images/详情页/book.png" onclick="details()">
+             <div class="star">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/白.png">
+          </div>
+             <div class="message">
+                <a>书名</a>
+                <a>作者</a>
+            </div>
+            </div>
+            
+        <div class="book">
+             <img src="images/详情页/book.png" onclick="details()">
+             <div class="star">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/白.png">
+          </div>
+             <div class="message">
+                <a>书名</a>
+                <a>作者</a>
+            </div>
+            </div>
+            
+        <div class="book"> 
+            <img src="images/详情页/book.png" onclick="details()">
+            <div class="star">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/白.png">
+          </div>
+          <div class="message">
+            <a>书名</a>
+            <a>作者</a>
+        </div>
+        </div>
+        <div class="book">
+             <img src="images/详情页/book.png" onclick="details()">
+             <div class="star">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/黑.png">
+                <img src="images/详情页/白.png">
+          </div>
+             <div class="message">
+                <a>书名</a>
+                <a>作者</a>
+            </div>
+            </div>
+            
+         </div>
+         <ul class="pagination">
+            <li class="num"><a href="#">&lt;</a></li>
+            <li class="num"><a href="#">1</a></li>
+            <li class="num"><a href="#">2</a></li>
+            <li class="num"><a href="#">3</a></li>
+            <li class="num"><a href="#">...</a></li>
+            <li class="num"><a href="#">x</a></li>
+            <li class="num"><a href="#">&gt;</a></li>
+         </ul>
+ </div>
+</body>
+</html>

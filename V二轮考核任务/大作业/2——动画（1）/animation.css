@@ -1,0 +1,145 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-image: url(./image.jpg);
+	background-size: 100% 100%;
+}
+
+/*动画*/
+#animation{
+	width: 200px;
+	height: 200px;
+	background-image: url(./CrayonXiaoxin_1.jpg);
+	background-size: 100% 100%;
+	border:5px solid rgba(255,255,255,0.5);
+	animation: myfirst 3s infinite;
+	animation-fill-mode:forwards;
+    animation-iteration-count:1;
+	position: absolute;
+	top: 25%;
+}
+
+#animation:hover{
+	border:5px solid rgba(255,255,255,1);
+	cursor: pointer;
+}
+
+@keyframes myfirst{
+	0% {background-image: url(./CrayonXiaoxin_1.jpg);left: 200px;}
+	15%{background-image: url(./CrayonXiaoxin_3.jpg);left:300px;}
+	30%{background-image: url(./CrayonXiaoxin_4.jpg);left:400px;}
+	45% {background-image: url(./CrayonXiaoxin_5.jpg);left:500px;}
+	60%{background-image: url(./CrayonXiaoxin_6.jpg);left:600px;}
+	75%{background-image: url(./CrayonXiaoxin_7.jpg);left:700px;}
+	90% {background-image: url(./CrayonXiaoxin_8.jpg);left:800px;}
+	100%{background-image: url(./CrayonXiaoxin_9.jpg);left:900px;}
+}
+
+@-webkit-@keyframes myfirst{
+	0% {background-image: url(./CrayonXiaoxin_1.jpg);left: 0px;}
+	15%{background-image: url(./CrayonXiaoxin_3.jpg);left:100px;}
+	30%{background-image: url(./CrayonXiaoxin_4.jpg);left: 200px;}
+	45% {background-image: url(./CrayonXiaoxin_5.jpg);left:300px;}
+	60%{background-image: url(./CrayonXiaoxin_6.jpg);left:400px;}
+	75%{background-image: url(./CrayonXiaoxin_7.jpg);left: 500px;}
+	90% {background-image: url(./CrayonXiaoxin_8.jpg);left:600px;}
+	100%{background-image: url(./CrayonXiaoxin_9.jpg);left:700px;}
+}
+
+@-moz-@keyframes myfirst{
+	0% {background-image: url(./CrayonXiaoxin_1.jpg);left: 0px;}
+	15%{background-image: url(./CrayonXiaoxin_3.jpg);left:100px;}
+	30%{background-image: url(./CrayonXiaoxin_4.jpg);left: 200px;}
+	45% {background-image: url(./CrayonXiaoxin_5.jpg);left:300px;}
+	60%{background-image: url(./CrayonXiaoxin_6.jpg);left:400px;}
+	75%{background-image: url(./CrayonXiaoxin_7.jpg);left: 500px;}
+	90% {background-image: url(./CrayonXiaoxin_8.jpg);left:600px;}
+	100%{background-image: url(./CrayonXiaoxin_9.jpg);left:700px;}
+}
+
+@-o-@keyframes myfirst{
+	0% {background-image: url(./CrayonXiaoxin_1.jpg);left: 0px;}
+	15%{background-image: url(./CrayonXiaoxin_3.jpg);left:100px;}
+	30%{background-image: url(./CrayonXiaoxin_4.jpg);left: 200px;}
+	45% {background-image: url(./CrayonXiaoxin_5.jpg);left:300px;}
+	60%{background-image: url(./CrayonXiaoxin_6.jpg);left:400px;}
+	75%{background-image: url(./CrayonXiaoxin_7.jpg);left: 500px;}
+	90% {background-image: url(./CrayonXiaoxin_8.jpg);left:600px;}
+	100%{background-image: url(./CrayonXiaoxin_9.jpg);left:700px;}
+}
+
+@-ms-@keyframes myfirst{
+	0% {background-image: url(./CrayonXiaoxin_1.jpg);left: 0px;}
+	15%{background-image: url(./CrayonXiaoxin_3.jpg);left:100px;}
+	30%{background-image: url(./CrayonXiaoxin_4.jpg);left: 200px;}
+	45% {background-image: url(./CrayonXiaoxin_5.jpg);left:300px;}
+	60%{background-image: url(./CrayonXiaoxin_6.jpg);left:400px;}
+	75%{background-image: url(./CrayonXiaoxin_7.jpg);left: 500px;}
+	90% {background-image: url(./CrayonXiaoxin_8.jpg);left:600px;}
+	100%{background-image: url(./CrayonXiaoxin_9.jpg);left:700px;}
+}
+
+/*线条*/
+#animation .line{
+	position: absolute;
+	background: none;
+	transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+}
+
+#animation:hover .line{
+	background: #D53131;
+}
+
+#animation .line-top{
+	height: 5px;
+	width: 0px;
+	left: -110%;
+	top: -5px;
+}
+
+#animation:hover .line-top{
+	width: 100%;
+	left: -5px;
+}
+
+#animation .line-right{
+	width: 5px;
+	height: 0px;
+	right: -5px;
+	top: -110%;
+}
+
+#animation:hover .line-right{
+	height:100%;
+	top: -5px;
+}
+
+#animation .line-left{
+	width: 5px;
+	height: 0px;
+	left: -5px;
+	bottom: -110%;
+}
+
+#animation:hover .line-left{
+	height:100%;
+	bottom: -5px;
+}
+
+#animation .line-bottom{
+	width: 0px;
+	height: 5px;
+	bottom: -5px;
+	right: -110%;
+}
+
+#animation:hover .line-bottom{
+	width:100%;
+	right:-5px;
+}

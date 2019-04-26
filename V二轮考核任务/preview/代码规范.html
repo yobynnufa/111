@@ -1,0 +1,188 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:代码规范</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h2 id="-">命名规范</h2>
+<ul>
+<li>CSS 命名一般采用小写英文单词或组合命名，单词与单词间以&quot;-&quot;分割；英文单词不缩写，除非一看就能明白的单词。<h3 id="-">文本命名规范</h3>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>index.css: 一般用于首页建立样式</li>
+<li>head.css: 头部样式，当多个页面头部设计风格相同时使用。</li>
+<li>base.css: 共用样式。</li>
+<li>style.css: 独立页面所使用的样式文件。</li>
+<li>global.css: 页面样式基础，全局公用样式，页面中必须包含。</li>
+<li>layout.css: 布局、版面样式，公用类型较多时使用，一般用在首页级页面和产品类页面中</li>
+<li>module.css: 模块，用于产品类页，也可与其它样式配合使用。</li>
+<li>master.css: 主要的样式表</li>
+<li>columns.css: 专栏样式</li>
+<li>themes.css: 主体样式</li>
+<li>forms.css: 表单样式</li>
+<li>mend.css: 补丁，基于以上样式进行的私有化修补。</li>
+</ul>
+</blockquote>
+<h3 id="-">页面结构命名：</h3>
+<blockquote>
+<ul>
+<li>page: 代表整个页面，用于最外层。</li>
+<li>wrap: 外套，将所有元素包在一起的一个外围包，用于最外层</li>
+<li>wrapper: 页面外围控制整体布局宽度，用于最外层</li>
+<li>container: 一个整体容器，用于最外层</li>
+<li>head, header: 页头区域，用于头部</li>
+<li>nav: 导航条</li>
+<li>content: 内容，网站中最重要的内容区域，用于网页中部主体</li>
+<li>main: 网站中的主要区域（表示最重要的一块位置），用于中部主体内容</li>
+<li>column: 栏目</li>
+<li>sidebar: 侧栏</li>
+<li>foot, footer: 页尾、页脚。网站一些附加信息放置区域，（或命名为 copyright）用于底部</li>
+</ul>
+</blockquote>
+<h3 id="-">导航命名：</h3>
+<blockquote>
+<ul>
+<li>nav, navbar, navigation, nav-wrapper: 导航条或导航包，代表横向导航</li>
+<li>topnav: 顶部导航</li>
+<li>mainbav: 主导航</li>
+<li>subnav: 子导航</li>
+<li>sidebar: 边导航</li>
+<li>leftsidebar 或 sidebar_a: 左导航</li>
+<li>rightsidebar 或 sidebar_b: 右导航</li>
+<li>title: 标题</li>
+<li>summary: 摘要/li&gt;</li>
+<li>menu: 菜单，区域包含一般的链接和菜单</li>
+<li>submenu: 子菜单</li>
+<li>drop: 下拉</li>
+<li>dorpmenu: 下拉菜单</li>
+<li>links: 链接菜单</li>
+</ul>
+</blockquote>
+<h3 id="-">功能命名</h3>
+<blockquote>
+<ul>
+<li>logo: 标记网站logo标志</li>
+<li>banner: 标语、广告条、顶部广告条</li>
+<li>login: 登陆，（例如登录表单：form-login）</li>
+<li>loginbar: 登录条</li>
+<li>register: 注册</li>
+<li>tool, toolbar: 工具条</li>
+<li>search: 搜索</li>
+<li>searchbar: 搜索条</li>
+<li>searchlnput: 搜索输入框</li>
+<li>shop: 功能区，表示现在的</li>
+<li>icon: 小图标</li>
+<li>label: 商标</li>
+<li>homepage: 首页</li>
+<li>subpage: 二级页面子页面</li>
+<li>hot: 热门热点</li>
+<li>list: 文章列表，（例如：新闻列表：list-news）</li>
+<li>scroll: 滚动</li>
+<li>tab: 标签</li>
+<li>sitemap: 网站地图</li>
+<li>msg 或 message: 提示信息</li>
+<li>current: 当前的</li>
+<li>joinus: 加入</li>
+<li>status: 状态</li>
+<li>btn: 按钮，（例如：搜索按钮可写成：btn-search）</li>
+<li>tips: 小技巧</li>
+<li>note: 注释</li>
+<li>guild: 指南</li>
+<li>arr, arrow: 标记箭头</li>
+<li>service: 服务</li>
+<li>breadcrumb: (即页面所处位置导航提示）</li>
+<li>download: 下载</li>
+<li>vote: 投票</li>
+<li>siteinfo: 网站信息</li>
+<li>partner: 合作伙伴</li>
+<li>link, friendlink: 友情链接</li>
+<li>copyright: 版权信息</li>
+<li>siteinfoCredits: 信誉</li>
+<li>siteinfoLegal: 法律信息</li>
+</ul>
+</blockquote>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>

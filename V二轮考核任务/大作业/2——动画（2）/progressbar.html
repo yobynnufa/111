@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>progressbar</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="progressbar.css">
+</head>
+<body>
+
+	<div id="loading">
+		<div id="loading_1"></div>
+		<div id="loadtext">0%</div>
+		<div id="cover">加载完成</div>
+	</div>
+
+<script>
+
+//进度条和计时器
+var i=0;
+function test(){
+	i++;
+	document.getElementById("loadtext").innerText = i + "%";
+	if(i<100) setTimeout("test()",100);
+}
+setTimeout("test()",100);
+
+//进度条判断动画是否停止并将覆盖层跳出
+var e = document.getElementById("loading_1");
+	e.addEventListener("animationend", function() {
+		document.getElementById("cover").style.display = "block";
+	});
+</script>
+
+</body>
+</html>
